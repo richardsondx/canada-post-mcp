@@ -57,6 +57,30 @@ cp .env.example .env
 
 Get free Developer Program credentials at the [Canada Post Developer Program](https://www.canadapost-postescanada.ca/info/mc/business/productsservices/developers/services/gettingstarted.jsf). For the preferred route, create an app in the [Canada Post Developer Portal](https://developer-developpeur.canadapost-postescanada.ca/devportal-portaildesdeveloppeurs/), subscribe it to Tracking and Rating, and copy its API Key and API Secret into `.env`. The server gets a token with OAuth2 client credentials, scope `merchant`, then calls Tracking v1 and Rating v1. A Test app returns stubbed data, not live parcel data. A production app returns live data.
 
+## Copy-paste prompt
+
+Copy the block below into your AI agent. It installs the server, connects it, and tells the agent what to do with it.
+
+```text
+Set up the UNOFFICIAL Canada Post MCP server for me:
+
+1. Clone https://github.com/richardsondx/canada-post-mcp and run npm install, then npm run build.
+2. Copy .env.example to .env. Add my Canada Post Developer Portal API Key and API Secret, plus my customer number. Never commit the .env file.
+3. Add this server to my MCP config:
+
+{
+  "mcpServers": {
+    "canada-post": {
+      "command": "node",
+      "args": ["/path/to/canada-post-mcp/dist/server.js"]
+    }
+  }
+}
+
+4. Use the four tools: track_parcel to track a parcel by tracking number, get_rates to get shipping rates for a route, find_post_office to find post offices near a place or postal code, and list_mymail to list incoming mail (opt-in only).
+5. Never invent a status, rate, or address. If Canada Post returns no data, say so and name the source.
+```
+
 ## Examples
 
 Track a parcel (16-digit domestic number, or a 13-character code ending in CA):
