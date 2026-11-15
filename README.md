@@ -1,9 +1,9 @@
-# 🍁 UNOFFICIAL Canada Post MCP Server
+# 🇨🇦 UNOFFICIAL Canada Post MCP Server
 
 > **UNOFFICIAL. This project is not affiliated with, endorsed by, or connected to Canada Post Corporation / Postes Canada.**
 > Canada Post publishes no official MCP server. This is a community project built by Canadians, for Canadians, in red and white.
 
-A [Model Context Protocol](https://modelcontextprotocol.io/) server that gives AI agents four Canada Post tools: parcel tracking, shipping rates, post office finder, and MyMail (local only, opt-in).
+A [Model Context Protocol](https://modelcontextprotocol.io/) server that gives AI agents four Canada Post tools: parcel tracking, shipping rates, post office finder, and MyMail (opt-in).
 
 ## Tools
 
@@ -12,7 +12,7 @@ A [Model Context Protocol](https://modelcontextprotocol.io/) server that gives A
 | `track_parcel` | Track a parcel by tracking number. Live status from Canada Post public tracking, or an honest error when Canada Post blocks the request. |
 | `get_rates` | Get shipping rates for a route. Live rates need free Developer Program credentials; without them it links the public Find a Rate calculator and never invents a rate. |
 | `find_post_office` | Find post offices near a place or postal code. Every result has a real address. |
-| `list_mymail` | List incoming mail from MyMail. Local only, opt-in, mock mode for tests. Never logs in. |
+| `list_mymail` | List incoming mail from MyMail. Opt-in, mock mode for tests. Never logs in. |
 
 ## Install
 
@@ -90,9 +90,9 @@ List MyMail (mock mode):
 { "limit": 5 }
 ```
 
-## MyMail: local only, opt-in, break risk
+## MyMail: opt-in, break risk
 
-MyMail shows incoming Lettermail, Personalized Mail, and Neighbourhood Mail in the Canada Post app. This server treats MyMail as local only:
+MyMail shows incoming Lettermail, Personalized Mail, and Neighbourhood Mail in the Canada Post app. This server treats MyMail as opt-in:
 
 - MyMail is off by default. It needs explicit env config to run at all.
 - With no config, `list_mymail` fails cleanly with a clear message.
@@ -137,6 +137,10 @@ Tests cover tool schemas, tracking-number validation, postal code validation, an
 ## Disclaimer
 
 This project is UNOFFICIAL. It is not affiliated with, endorsed by, sponsored by, or connected to Canada Post Corporation / Postes Canada. "Canada Post", "Postes Canada", "MyMail", "Xpresspost", and "Lettermail" are trademarks of Canada Post Corporation. This server uses public web routes and the official Developer Program APIs with the user's own credentials. Use it at your own risk, and confirm rates, delivery dates, and post office hours on the official Canada Post site before you act on them.
+
+## Author
+
+Built by [Richardson Dackam](https://x.com/RichardsonDx).
 
 ## License
 
